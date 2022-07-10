@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Models/Space Station/Space Station Module 1.dae" type="PackedScene" id=1]
+[ext_resource path="res://space.jpg" type="Texture" id=2]
+
+[sub_resource type="PanoramaSky" id=2]
+panorama = ExtResource( 2 )
+
+[sub_resource type="Environment" id=1]
+background_mode = 2
+background_sky = SubResource( 2 )
+ambient_light_color = Color( 1, 1, 1, 1 )
+ambient_light_energy = 2.0
+tonemap_mode = 2
+auto_exposure_speed = 1.0
+ssao_enabled = true
+ssao_quality = 2
+ssao_blur = 1
+ssao_edge_sharpness = 1.0
+dof_blur_far_distance = 16.81
+glow_enabled = true
+adjustment_brightness = 1.84
+
+[node name="World" type="Spatial"]
+
+[node name="Environment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="Camera" type="ClippedCamera" parent="."]
+transform = Transform( -0.000767976, 0, 1, 0, 1, 0, -1, 0, -0.000767976, 9.57642, 1.44658, 0 )
+doppler_tracking = 1
+fov = 80.0
+margin = 0.1
+
+[node name="Space Station Module 1" parent="." instance=ExtResource( 1 )]
